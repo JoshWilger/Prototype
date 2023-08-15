@@ -6,11 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float playerToCeilGap = 0.3f;
 
-    [SerializeField] private LayerMask ground;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private MeshCollider coll;
     [SerializeField] private Transform cam;
 
     public float turnSmoothTime = 0.1f;
@@ -33,20 +30,5 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rb.AddForce(moveDir * moveSpeed);
         }
-    }
-
-    private bool IsACeiling()
-    {
-        return Physics.BoxCast(coll.bounds.center, coll.bounds.size, Vector3.up, transform.rotation, playerToCeilGap, ground);
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics.BoxCast(coll.bounds.center, coll.bounds.size, Vector3.down, transform.rotation, 0.1f, ground);
-    }
-
-    private bool IsAWall(Vector3 direction)
-    {
-        return Physics.BoxCast(coll.bounds.center, coll.bounds.size, direction, transform.rotation, 0.1f, ground);
     }
 }

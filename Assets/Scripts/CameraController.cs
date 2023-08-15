@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        // Adapted from https://www.youtube.com/watch?v=4HpC--2iowE
         float dirX = Input.GetAxis("Horizontal");
         float dirZ = Input.GetAxis("Vertical");
 

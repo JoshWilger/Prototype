@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        // Adapted from https://www.youtube.com/watch?v=4HpC--2iowE
         if (!enabled) return;
 
         float dirX = Input.GetAxisRaw("Horizontal");
